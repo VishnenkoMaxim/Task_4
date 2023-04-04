@@ -12,7 +12,7 @@ using namespace std;
 ///
 /// \section intro_sec Introduction
 ///
-/// This is the introduction.
+/// This is the introduction
 ///
 
 /// Template function to print IP with integral values
