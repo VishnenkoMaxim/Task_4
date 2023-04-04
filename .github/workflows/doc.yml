@@ -38,8 +38,8 @@ jobs:
           name: doc-files
           path: docDir
 
-      - run: ls -l
       - run: cp -R ./docDir/html/* .
+      - run: mv index.html index.md
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
