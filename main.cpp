@@ -59,12 +59,10 @@ void Print_IP(const Container<Type, Allocator> &value){
     cout << endl;
 }
 
-template <class ... T, class Container = tuple<T...>,
-        typename = enable_if_t<
-                is_same_v<typename tuple_element<0, tuple<T...>>::type, typename tuple_element<1, tuple<T...>>::type>
-                && is_same_v<typename tuple_element<1, tuple<T...>>::type, typename tuple_element<2, tuple<T...>>::type>
-                && is_same_v<typename tuple_element<2, tuple<T...>>::type, typename tuple_element<3, tuple<T...>>::type>
-                && is_same_v<typename tuple_element<2, tuple<T...>>::type, typename tuple_element<3, tuple<T...>>::type>>>
+template <class ... T, class Container = tuple<T...>, class T_elem = typename tuple_element<0, tuple<T...>>::type,
+        class = enable_if_t<is_same_v<typename tuple_element<1, tuple<T...>>::type, T_elem>
+                            && is_same_v<typename tuple_element<2, tuple<T...>>::type, T_elem>
+                            && is_same_v<typename tuple_element<3, tuple<T...>>::type, T_elem>>>
 void Print_IP(const tuple<T...> value){
     cout << get<0>(value) << ".";
     cout << get<1>(value) << ".";
