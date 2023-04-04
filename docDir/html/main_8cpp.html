@@ -99,9 +99,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a018ecad067e83267a36d1c798f94f619"><td class="memTemplParams" colspan="2">template&lt;template&lt; class, class &gt; class Container, class Type , class Allocator  = allocator&lt;Type&gt;, typename  = enable_if_t&lt;is_same_v&lt;Container&lt;Type, Allocator&gt;, list&lt;Type, Allocator&gt;&gt; || is_same_v&lt;Container&lt;Type, Allocator&gt;, vector&lt;Type, Allocator&gt;&gt;&gt;&gt; </td></tr>
 <tr class="memitem:a018ecad067e83267a36d1c798f94f619"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a018ecad067e83267a36d1c798f94f619">Print_IP</a> (const Container&lt; Type, Allocator &gt; &amp;value)</td></tr>
 <tr class="separator:a018ecad067e83267a36d1c798f94f619"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a733180fa1787d7e07d2e171ecc7fbfb6"><td class="memTemplParams" colspan="2">template&lt;class ... T, class Container  = tuple&lt;T...&gt;, class T_elem  = typename tuple_element&lt;0, tuple&lt;T...&gt;&gt;::type, class  = enable_if_t&lt;is_same_v&lt;typename tuple_element&lt;1, tuple&lt;T...&gt;&gt;::type, T_elem&gt;                            &amp;&amp; is_same_v&lt;typename tuple_element&lt;2, tuple&lt;T...&gt;&gt;::type, T_elem&gt;                            &amp;&amp; is_same_v&lt;typename tuple_element&lt;3, tuple&lt;T...&gt;&gt;::type, T_elem&gt;&gt;&gt; </td></tr>
-<tr class="memitem:a733180fa1787d7e07d2e171ecc7fbfb6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a733180fa1787d7e07d2e171ecc7fbfb6">Print_IP</a> (const tuple&lt; T... &gt; value)</td></tr>
-<tr class="separator:a733180fa1787d7e07d2e171ecc7fbfb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a540a18adea69e185006edde1c672f8d2"><td class="memTemplParams" colspan="2">template&lt;class ... T, class Container  = tuple&lt;T...&gt;, class T_elem  = typename tuple_element&lt;0, tuple&lt;T...&gt;&gt;::type, class  = enable_if_t&lt;is_same_v&lt;typename tuple_element&lt;1, tuple&lt;T...&gt;&gt;::type, T_elem&gt;                            &amp;&amp; is_same_v&lt;typename tuple_element&lt;2, tuple&lt;T...&gt;&gt;::type, T_elem&gt;                            &amp;&amp; is_same_v&lt;typename tuple_element&lt;3, tuple&lt;T...&gt;&gt;::type, T_elem&gt;&gt;&gt; </td></tr>
+<tr class="memitem:a540a18adea69e185006edde1c672f8d2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a540a18adea69e185006edde1c672f8d2">Print_IP</a> (const tuple&lt; T... &gt; &amp;value)</td></tr>
+<tr class="separator:a540a18adea69e185006edde1c672f8d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -158,8 +158,8 @@ template&lt;template&lt; class, class &gt; class Container, class Type , class A
 
 </div>
 </div>
-<a id="a733180fa1787d7e07d2e171ecc7fbfb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a733180fa1787d7e07d2e171ecc7fbfb6">&#9670;&nbsp;</a></span>Print_IP() <span class="overload">[2/4]</span></h2>
+<a id="a540a18adea69e185006edde1c672f8d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a540a18adea69e185006edde1c672f8d2">&#9670;&nbsp;</a></span>Print_IP() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,12 +169,26 @@ template&lt;class ... T, class Container  = tuple&lt;T...&gt;, class T_elem  = t
         <tr>
           <td class="memname">void Print_IP </td>
           <td>(</td>
-          <td class="paramtype">const tuple&lt; T... &gt;&#160;</td>
+          <td class="paramtype">const tuple&lt; T... &gt; &amp;&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Template function to print IP given as a tuple </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>tuple's elements type </td></tr>
+    <tr><td class="paramname">Container</td><td>must be tuple </td></tr>
+    <tr><td class="paramname">T_elem</td><td>type of first element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>tuple </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
