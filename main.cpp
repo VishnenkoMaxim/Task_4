@@ -59,11 +59,18 @@ void Print_IP(const Container<Type, Allocator> &value){
     cout << endl;
 }
 
-//template <class T>
-//typename enable_if<is_same<T, tuple<>>::value, void>::type
-//Print_IP(T value){
-//    cout << value << endl;
-//}
+template <class ... T, class Container = tuple<T...>,
+        typename = enable_if_t<
+                is_same_v<typename tuple_element<0, tuple<T...>>::type, typename tuple_element<1, tuple<T...>>::type>
+                && is_same_v<typename tuple_element<1, tuple<T...>>::type, typename tuple_element<2, tuple<T...>>::type>
+                && is_same_v<typename tuple_element<2, tuple<T...>>::type, typename tuple_element<3, tuple<T...>>::type>
+                && is_same_v<typename tuple_element<2, tuple<T...>>::type, typename tuple_element<3, tuple<T...>>::type>>>
+void Print_IP(const tuple<T...> value){
+    cout << get<0>(value) << ".";
+    cout << get<1>(value) << ".";
+    cout << get<2>(value) << ".";
+    cout << get<3>(value) << endl;
+}
 
 /// main function
 /// \return
@@ -75,7 +82,7 @@ int main() {
     Print_IP(string{"Hello, World!"});
     Print_IP(vector<int> {100, 200, 300, 400});
     Print_IP(list<short> {400, 300, 200, 100});
-    //Print_IP(make_tuple(123, 456, 789, 0));
+    Print_IP(make_tuple(123, 456, 789, 0));
 
     return 0;
 }
