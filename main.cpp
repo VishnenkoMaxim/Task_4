@@ -8,6 +8,11 @@
 
 using namespace std;
 
+template <typename T>
+void tfunc [[maybe_unused]](T) {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+}
+
 /// \mainpage Task #4
 ///
 /// \section intro_sec Introduction
@@ -59,28 +64,15 @@ void Print_IP(const Container<Type, Allocator> &value){
     cout << endl;
 }
 
-/// Template function to print IP given as a tuple
-/// \tparam T tuple's elements type
-/// \tparam Container must be tuple
-/// \tparam T_elem type of first element
-/// \param value tuple
-template <class ... T, class T_elem = typename tuple_element<0, tuple<T...>>::type,
-        class = enable_if_t<is_same_v<typename tuple_element<1, tuple<T...>>::type, T_elem>
-                            && is_same_v<typename tuple_element<2, tuple<T...>>::type, T_elem>
-                            && is_same_v<typename tuple_element<3, tuple<T...>>::type, T_elem>>>
-void Print_IP(const tuple<T...> &value){
-    cout << get<0>(value) << ".";
-    cout << get<1>(value) << ".";
-    cout << get<2>(value) << ".";
-    cout << get<3>(value) << endl;
-}
 
 template <class T, size_t ... idx>
 void PrintTuple(const T &_tuple, index_sequence<idx...>){
     size_t index = 0;
     size_t el_count = tuple_size<remove_reference_t<T>>::value;
 
-    auto Print = [&index, &el_count] (const auto &value){
+    auto Print = [&index, &el_count] (const auto value){
+        enable_if_t<is_same_v<tuple_element_t<0, T>, remove_const_t<decltype(value)>>, int> fake_var;
+
         cout << value;
         index++;
         if (index < el_count) cout << '.';
@@ -89,8 +81,12 @@ void PrintTuple(const T &_tuple, index_sequence<idx...>){
     (Print(get<idx>(_tuple)), ...);
 }
 
+/// Template function to print IP given as a tuple
+/// \tparam T tuple's elements type
+/// \tparam T_elem type of first element
+/// \param value tuple
 template <class ...T, size_t ... idx>
-void Print_IP2(const tuple<T...> &value){
+void Print_IP(const tuple<T...> &value){
     PrintTuple(value, make_index_sequence<tuple_size<tuple<T...>>::value>{});
 }
 
@@ -105,7 +101,6 @@ int main() {
     Print_IP(vector<int> {100, 200, 300, 400});
     Print_IP(list<short> {400, 300, 200, 100});
     Print_IP(make_tuple(123, 456, 789, 0));
-    Print_IP2(make_tuple(123, 456, 789, 0));
 
     return 0;
 }
